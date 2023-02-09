@@ -1,23 +1,29 @@
 //SPDX-License-Identifier: UNLICENSE
 
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.13;
 
-contract readAndWrite {
+contract secondChallenge{
 
-    uint num;
+    uint256 private number;
 
-    function get() public view returns (uint) {
+    function deposit() public payable{
+       number += msg.value;
+       
 
-        // reading the value of the variable
-
-        return num;
     }
-    
 
-    function set(uint _num) public {
+    function getWei() public view returns (uint){
+        return number;
 
-        //Writing a value of the variable
+    }
 
-        num = _num;
+    function getGwei() public view returns (uint){
+        return number / 10**9;
+        
+    }
+
+    function getEth() public view returns (uint){
+        return number / 10**18;
+        
     }
 }
