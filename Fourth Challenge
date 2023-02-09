@@ -1,0 +1,42 @@
+pragma solidity ^0.8.17;
+contract operation{
+        
+        uint a ;
+        uint b;
+
+        uint d;
+        uint e;
+
+        uint g;
+        uint h;
+
+        uint j;
+        uint k;
+
+        function addResult(uint _a, uint _b) public payable returns(uint) {
+            a = _a;
+            b = _b;
+
+          uint  c = a+b;
+            return c;
+        }
+         function subtractResult(uint _d, uint _e) public payable returns(uint ) {
+            d = _d;
+            e = _e;
+          uint  f = d-e;
+            return f;
+        }
+
+        function multiplicationResult(uint _g, uint _h) public payable returns(uint ) {
+            g = _g;
+            h = _h;
+          uint  i = g*e;
+            return i;
+        }
+        function divisionResult(uint _j, uint _k) public payable returns(uint ) {
+            j = _j;
+            k = _k;
+          uint  l = j / e;
+            return l;
+        }
+}
