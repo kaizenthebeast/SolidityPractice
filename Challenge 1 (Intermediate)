@@ -6,7 +6,21 @@ contract viewAndPurePayableFunctions{
 // declaring a variable
   uint public x = 5;
   
-  // keyword payable to the state variable
+
+// simple example of view
+  function addToX() public view returns (uint){
+   return x + 20;
+  }
+  
+  // simple example of pure
+  function add(uint n, uint h) public pure returns(uint){
+   return n * j;
+  }
+  
+}
+
+contract payable{
+// keyword payable to the state variable
   address payable public Owner;
  
  //set the owner to the msg.sender
@@ -31,15 +45,4 @@ contract viewAndPurePayableFunctions{
        _to.transfer(_amount);
   }
 
-
-// simple example of view
-  function addToX(uint y) public view returns (uint){
-   return x + y;
-  }
-  
-  // simple example of pure
-  function add(uint n, uint h) public pure returns(uint){
-   return n + j;
-  }
-  
 }
