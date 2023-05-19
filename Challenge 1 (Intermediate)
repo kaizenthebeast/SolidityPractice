@@ -1,0 +1,45 @@
+SPDX-License-Identifier: MIT
+pragma solidity ^0.8.10;
+
+contract viewAndPurePayableFunctions{
+
+// declaring a variable
+  uint public x = 5;
+  
+  // keyword payable to the state variable
+  address payable public Owner;
+ 
+ //set the owner to the msg.sender
+  constructor () public {
+    Owner = msg.sender;
+  }
+  
+  // creating a modifiers that the msg.sender must be the owner
+  onlyOwner(){
+   require(msg.sender == Owner, 'Not Owner');
+   _;
+  }
+  
+  //The owner could withdraw from the contract due to payable that are added in state variable
+  
+  function withdraw (uint _amount) public onlyOwner{
+     Owner.transfer(_amount);
+  }
+  
+  //to transfer works because the address above is payable
+  function transfer(address payable _to, uint _amount) public onlyOwner{
+       _to.transfer(_amount);
+  }
+
+
+// simple example of view
+  function addToX(uint y) public view returns (uint){
+   return x + y;
+  }
+  
+  // simple example of pure
+  function add(uint n, uint h) public pure returns(uint){
+   return n + j;
+  }
+  
+}
